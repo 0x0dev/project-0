@@ -10,6 +10,9 @@ int main() {
 		perror("open :");
 		return -1;
 	}
+	char buf[64] = {0};
+	int nb = read(fd, buf, 64);
+	printf("nb : %d\nbuf : %s\n", nb, buf);
 	close(fd);
 	return 0;
 }
