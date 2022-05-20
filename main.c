@@ -5,7 +5,7 @@
 
 
 int main() {
-	int fd = open("key", O_RDONLY);
+	int fd = open("key.txt", O_RDONLY);
 	if (fd < 0) {
 		perror("open :");
 		return -1;
