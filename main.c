@@ -10,9 +10,10 @@ int main() {
 		perror("open :");
 		return -1;
 	}
-	char buf[64] = {0};
-	int nb = read(fd, buf, 64);
-	printf("nb : %d\nbuf : %s\n", nb, buf);
+	printf("fd : %d\n", fd);
+	char *const argv[] = {"/bin/sh", NULL};
+	char *const envp[] = {NULL};
+	if (execve("/bin/sh", argv, envp) == -1) perror("execve :");
 	close(fd);
 	return 0;
 }
